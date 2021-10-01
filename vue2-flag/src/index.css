@@ -1,0 +1,37 @@
+a:link {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #fff;
+}
+
+
+#export {
+  display: block;
+  margin: 0 auto;
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
+}
+
+.operation-btns .o-btn1 {
+  background-size: 11.6rem 4.325rem
+}
+
+.operation-btns .o-btn2 {
+  background-size: 11.6rem 3.75rem
+}
+
+center {
+  color: #fff;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
