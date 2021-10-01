@@ -4,7 +4,7 @@
  * @Date: 2021-10-01 09:35:28
  * @Url: https://u.mr90.top
  * @github: https://github.com/rr210
- * @LastEditTime: 2021-10-01 21:28:43
+ * @LastEditTime: 2021-10-01 21:50:13
  * @LastEditors: Harry
 -->
 <template>
@@ -154,8 +154,8 @@ export default {
     },
     exportFunc() {
       this.exportImage = imageEffectCanvas.toDataURL({
-        width: 200,
-        height: 200,
+        width: imageEffectCanvas.width,
+        height: imageEffectCanvas.width,
       });
       alert("长按图片保存或分享");
       this.isResults = true;
