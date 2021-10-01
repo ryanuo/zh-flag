@@ -4,7 +4,7 @@
  * @Date: 2021-10-01 09:35:28
  * @Url: https://u.mr90.top
  * @github: https://github.com/rr210
- * @LastEditTime: 2021-10-01 19:17:31
+ * @LastEditTime: 2021-10-01 21:28:43
  * @LastEditors: Harry
 -->
 <template>
@@ -13,7 +13,7 @@
     <div class="wrapper">
       <div class="operation-header">
         <div class="h-title">
-          <Left :num="imgLists.length" :imgList="imgLists"></Left>
+          <Left @currentBorderIndex="getCurrentBorderIndex" :num="imgLists.length" :imgList="imgLists"></Left>
         </div>
       </div>
       <div class="operation-box" v-if="!isResults">
@@ -42,18 +42,21 @@
       <div class="operation-done">
         <img src="picture/act-done-happy.png" alt="" class="act-done-happy" />
       </div>
+      <div align="center" style="font-weight:550;"><a style="color:#000" href="https://u.mr90.top" target="_blank">
+      ©2021-Harry</a></div>
     </div>
   </div>
 </template>
 
 <script>
 import Left from "./Left.vue";
+
 import { fabric } from "fabric";
 import canvasInit from "../assets/js/canvas-init.js";
 let imageEffectCanvas = "";
 fabric.Object.prototype.set(canvasInit);
 export default {
-  name: "Main",
+  name: "hr-main",
   components: { Left },
   data() {
     return {
@@ -80,6 +83,12 @@ export default {
       });
       imageEffectCanvas.preserveObjectStacking = true; //选中对象不会到最高层（解决选中图片层级提升覆盖文字等其它元素问题）
     },
+    // 获取当前索引值
+    getCurrentBorderIndex(e){
+      this.currentPicIndex = e
+      this.addBorder()
+    },
+    // 点击上传图片
     viewer(e) {
       let imgUrl = this.getObjectURL(e.target.files[0]);
       this.toggerBackHandle(imgUrl);
@@ -145,8 +154,8 @@ export default {
     },
     exportFunc() {
       this.exportImage = imageEffectCanvas.toDataURL({
-        width: imageEffectCanvas.width,
-        height: imageEffectCanvas.width,
+        width: 200,
+        height: 200,
       });
       alert("长按图片保存或分享");
       this.isResults = true;

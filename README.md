@@ -1,8 +1,8 @@
 ## 仓库简介
 
 * 国庆头像渐变色
-* ys-js  使用原生js
-* vue2-flag  使用vue2+fabric.js
+* `ys-js`  使用原生js
+* `vue2-flag`  使用vue2+fabric.js
 
 ## 效果图
 
